@@ -45,6 +45,7 @@ export default function CoursePage() {
       console.log('ERROR ' + err);
     }
   }
+
   // getDetails(slug);
   function countDiscount(fullPrice) {
     return (5 / 100) * fullPrice;
@@ -68,9 +69,13 @@ export default function CoursePage() {
             <h2>Limited to 25 spots, get yours now!</h2>
             <h3 className="start-date">Course starts on {nextStart}</h3>
             <p>
-              Next start dates : <br /> ____
+              Next start dates : <br />
+              {details
+                ? details.start_dates
+                    .slice(1, 3)
+                    .map((date, idx) => <li key={idx}>{date}</li>)
+                : 'Loading...'}
               <br />
-              ______
             </p>
           </div>
           <div className="price-wrap">
@@ -84,8 +89,13 @@ export default function CoursePage() {
               <div className="one-payment ">
                 <p className="label"> BEST DEAL</p>
                 One time payment <br />
-                {isEurope === 'EU' ? '€' : '$'} 5.000 x 1 <br /> save{' '}
-                {countDiscount(5000)}
+                {isEurope === 'EU' ? '€' : '$'}
+                {/* {details
+                ? details.prices 
+                    .map((date, idx) => <li key={idx}>{date}</li>)
+                : 'Loading...'}
+                 x 1 <br /> save{' '}
+                {countDiscount(5000)} */}
               </div>
             </div>
           </div>
