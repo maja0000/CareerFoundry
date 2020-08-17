@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // style
 import './CoursePage.scss';
 import './CoursePage.scss';
@@ -12,7 +12,11 @@ import { useHistory } from 'react-router';
 
 export default function CoursePage() {
   const { geolocation, setLocation } = useLocation();
-  console.log('geolocation', geolocation);
+  let isEurope = geolocation.continent_code;
+  // console.log(isEurope);
+  const [details, setDetails] = useState();
+
+  // console.log('geolocation', geolocation);
 
   const { title } = useParams();
   const history = useHistory();
@@ -21,6 +25,27 @@ export default function CoursePage() {
   let slug = history.location.state.course.slug;
   // HERE SLUG TO NEXT FETCH
   console.log('slug', slug);
+  useEffect((slug) => {
+    getDetails(slug);
+  }, []);
+
+  async function getDetails(slug) {
+    console.log('!HERE', slug);
+    try {
+      let res = await fetch();
+      // `https://private-e05942-courses22.apiary-mock.com/courses/${slug}`
+
+      let json = await res.json();
+      setDetails(json);
+      console.log('details ->', json);
+    } catch (err) {
+      console.log('ERROR ' + err);
+    }
+  }
+  // getDetails(slug);
+  function countDiscount(fullPrice) {
+    return (5 / 100) * fullPrice;
+  }
   return (
     <>
       <div className="course-details-wrap">
@@ -51,13 +76,13 @@ export default function CoursePage() {
               <div className="mothly-payment">
                 <p className="label"> MOST POPULAR </p> Monthly payment plan{' '}
                 <br />
-                {/* {isEurope === 'EU' ? '€' : '$'} 500.00 x 4{' '} */}
+                {isEurope === 'EU' ? '€' : '$'} 500.00 x 4{' '}
               </div>
               <div className="one-payment ">
                 <p className="label"> BEST DEAL</p>
                 One time payment <br />
-                {/* {isEurope === 'EU' ? '€' : '$'} 25.000 x 1 <br /> save{' '} */}
-                {/* {countDiscount(5000)} */}
+                {isEurope === 'EU' ? '€' : '$'} 25.000 x 1 <br /> save{' '}
+                {countDiscount(5000)}
               </div>
             </div>
           </div>
