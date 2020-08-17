@@ -14,7 +14,7 @@ export default function useLocation() {
       );
       let json = await res.json();
       setLocation(json);
-      console.log('location hook', json);
+      // console.log('location hook', json);
       setLoading(false);
     } catch (err) {
       console.log('Cant get geolocation ' + err);

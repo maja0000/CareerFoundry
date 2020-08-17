@@ -53,7 +53,10 @@ function App() {
 
           <Switch>
             <Route exact path="/"></Route>
-            <Route exact path="/courses/:name">
+            <Route exact path="/courses/:title">
+              <CoursePage />
+            </Route>
+            <Route exact path="/courses/:title">
               <CoursePage />
             </Route>
           </Switch>
