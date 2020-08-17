@@ -14,6 +14,6 @@ npm i + npm start :)
 - nicer design in general ;)
 
 4. refacture router - becuse i pass data through the link I'm not able to change the url without problems
-5. refacture currency handeling (would save the values to variables and then use them)
+5. refacture currency handeling (would save the values to variables and then use them) - maybe some Optimistic UI - before real data is rendered
 6. add the commented out function that calculates the saved money
 7. add env file and hide the API key :)
