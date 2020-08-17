@@ -24,16 +24,19 @@ export default function CoursePage() {
 
   let slug = history.location.state.course.slug;
   // HERE SLUG TO NEXT FETCH
-  console.log('slug', slug);
-  useEffect((slug) => {
+  // console.log('slug outside the function ->', slug);
+
+  useEffect(() => {
+    let slug = history.location.state.course.slug;
     getDetails(slug);
-  }, []);
+  }, [slug]);
 
   async function getDetails(slug) {
-    console.log('!HERE', slug);
+    // console.log('slug inside the getDetails', slug);
     try {
-      let res = await fetch();
-      // `https://private-e05942-courses22.apiary-mock.com/courses/${slug}`
+      let res = await fetch(
+        `https://private-e05942-courses22.apiary-mock.com/courses/${slug}`
+      );
 
       let json = await res.json();
       setDetails(json);
@@ -81,7 +84,7 @@ export default function CoursePage() {
               <div className="one-payment ">
                 <p className="label"> BEST DEAL</p>
                 One time payment <br />
-                {isEurope === 'EU' ? '€' : '$'} 25.000 x 1 <br /> save{' '}
+                {isEurope === 'EU' ? '€' : '$'} 5.000 x 1 <br /> save{' '}
                 {countDiscount(5000)}
               </div>
             </div>
