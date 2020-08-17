@@ -10,7 +10,7 @@ export default function CourseCard({ course }) {
     <>
       <div className="card-container">
         <div className="card-title">{course.title}</div>
-        <div className="card-title">DESCRIPTION HERE??</div>
+
         <div
           className="card-pic"
           style={{
@@ -19,7 +19,9 @@ export default function CourseCard({ course }) {
                 ? `url(${Alexa})`
                 : `url(${Immersion})`,
           }}
-        ></div>
+        >
+          <p className="job-guarantee">JOB GUARANTEE</p>
+        </div>
       </div>
     </>
   );

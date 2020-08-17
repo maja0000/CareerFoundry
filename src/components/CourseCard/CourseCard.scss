@@ -26,3 +26,18 @@
   width: auto;
   position: relative;
 }
+.job-guarantee {
+  background-color: $button-red;
+  padding: 5px;
+  color: $light-blue;
+  width: auto;
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  border-radius: 5px;
+}
+@media (max-width: 620px) {
+  .card-container {
+    width: 80vw;
+  }
+}
