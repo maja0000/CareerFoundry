@@ -5,8 +5,12 @@ import './App.scss';
 // pages
 import CourseCard from './components/CourseCard/CourseCard';
 import CoursePage from './components/Pages/CoursePage';
+// functionality
+import useCourses from './components/Hooks/useCourses';
 
 function App() {
+  const { courses, loading } = useCourses();
+  // console.log('here', courses);
   return (
     <>
       <div className="wrapper">
@@ -26,12 +30,27 @@ function App() {
               experience.
             </h3>
           </div>
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
+          {loading ? (
+            'Loading...'
+          ) : (
+            <div className="all-courses">
+              {courses.map((course, index) => (
+                <div key={index} course={course}>
+                  <Link
+                    to={{
+                      pathname: `/courses/${course.title}`,
+                      state: {
+                        course,
+                      },
+                    }}
+                  >
+                    <CourseCard course={course} />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          )}
+
           <Switch>
             <Route exact path="/"></Route>
             <Route exact path="/courses/:name">
