@@ -1,3 +1,5 @@
+npm i + npm start :)
+
 ### NOTE
 
 #### With more time I'd like to add/ change :
