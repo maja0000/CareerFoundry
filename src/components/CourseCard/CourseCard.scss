@@ -1,0 +1,28 @@
+@import '../../utils.scss';
+.card-container {
+  background-color: $darkest-blue;
+  color: $light-blue;
+  box-shadow: 2px 2px 2px #000000;
+  border-radius: 7px;
+  padding: 20px;
+  width: 30vw;
+  margin-top: 30px;
+  color: $background-darkblue;
+}
+.card-title {
+  background-color: white;
+  padding: 10px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+  font-size: 1em;
+  color: $background-darkblue;
+}
+.card-pic {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border-radius: 7px;
+  height: 100px;
+  width: auto;
+  position: relative;
+}

@@ -26,6 +26,12 @@ function App() {
               experience.
             </h3>
           </div>
+          <CourseCard />
+          <CourseCard />
+          <CourseCard />
+          <CourseCard />
+          <CourseCard />
+          <CourseCard />
           <Switch>
             <Route exact path="/"></Route>
             <Route exact path="/courses/:name">
