@@ -1,0 +1,46 @@
+@import './utils.scss';
+* {
+  max-width: 1500px;
+  margin: 0 auto;
+  font-family: DIN Condensed;
+  color: $light-blue;
+}
+h1 {
+  font-size: 4em;
+}
+h2 {
+  font-size: 2em;
+  text-decoration: underline;
+}
+h3 {
+  font-size: 1.2em;
+}
+.heading {
+  margin: 10px;
+}
+.wrapper {
+  background-color: $background-darkblue;
+  min-height: 100vh;
+}
+.logo {
+  position: absolute;
+  height: 40px;
+  width: 100px;
+  margin: 20px;
+  background-image: url(./pics/logo.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.banner {
+  height: 27vh;
+  width: 100vw;
+  background-image: url(./pics/banner1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.main-text {
+  margin: auto;
+  width: 80vw;
+}
