@@ -14,10 +14,9 @@ export default function useCourses() {
       );
       let json = await res.json();
       setCourses(json);
-      // console.log(json);
       setLoading(false);
     } catch (err) {
-      console.log('Cant get data' + err);
+      console.log(`Can't get courses ' + ${err}`);
     }
   }
   return { courses, loading };

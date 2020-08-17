@@ -5,7 +5,6 @@ import Alexa from '../../pics/alexa.jpg';
 import Immersion from '../../pics/immersion.jpg';
 
 export default function CourseCard({ course }) {
-  // console.log('from the card!!!', course);
   return (
     <>
       <div className="card-container">

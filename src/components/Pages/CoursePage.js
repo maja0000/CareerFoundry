@@ -13,18 +13,14 @@ import { useHistory } from 'react-router';
 export default function CoursePage() {
   const { geolocation, setLocation } = useLocation();
   let isEurope = geolocation.continent_code;
-  // console.log(isEurope);
-  const [details, setDetails] = useState();
 
-  // console.log('geolocation', geolocation);
+  const [details, setDetails] = useState();
 
   const { title } = useParams();
   const history = useHistory();
-  let nextStart = history.location.state.course.next_start;
 
+  let nextStart = history.location.state.course.next_start;
   let slug = history.location.state.course.slug;
-  // HERE SLUG TO NEXT FETCH
-  // console.log('slug outside the function ->', slug);
 
   useEffect(() => {
     let slug = history.location.state.course.slug;
@@ -32,7 +28,6 @@ export default function CoursePage() {
   }, [slug]);
 
   async function getDetails(slug) {
-    // console.log('slug inside the getDetails', slug);
     try {
       let res = await fetch(
         `https://private-e05942-courses22.apiary-mock.com/courses/${slug}`
@@ -40,16 +35,15 @@ export default function CoursePage() {
 
       let json = await res.json();
       setDetails(json);
-      console.log('details ->', json);
     } catch (err) {
-      console.log('ERROR ' + err);
+      console.log(`ERROR - ' + ${err}`);
     }
   }
 
-  // getDetails(slug);
-  function countDiscount(fullPrice) {
-    return (5 / 100) * fullPrice;
-  }
+  // function countDiscount(fullPrice) {
+  //   return (5 / 100) * fullPrice;
+  // }
+
   return (
     <>
       <div className="course-details-wrap">
@@ -84,18 +78,21 @@ export default function CoursePage() {
                 <p className="label"> MOST POPULAR </p> Monthly payment plan{' '}
                 <br />
                 {isEurope === 'EU' ? '€' : '$'}{' '}
-                {details && isEurope === 'EU'
-                  ? details.prices[1].amount / 4
-                  : 'Loading...'}{' '}
+                {details
+                  ? isEurope === 'EU'
+                    ? details.prices[1].amount / 4
+                    : details.prices[0].amount / 4
+                  : 'Loading...'}
                 x 4{' '}
               </div>
               <div className="one-payment ">
                 <p className="label"> BEST DEAL</p>
                 One time payment <br />
                 {isEurope === 'EU' ? '€' : '$'}
-                {/* {details.prices[1]} */}
-                {details && isEurope === 'EU'
-                  ? details.prices[1].amount
+                {details
+                  ? isEurope === 'EU'
+                    ? details.prices[1].amount
+                    : details.prices[0].amount
                   : 'Loading...'}
                 x 1 <br />
                 {/* save {countDiscount([details.prices[1].amount])} */}

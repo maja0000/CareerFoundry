@@ -10,7 +10,6 @@ import useCourses from './components/Hooks/useCourses';
 
 function App() {
   const { courses, loading } = useCourses();
-  // console.log('here', courses);
   return (
     <>
       <div className="wrapper">
