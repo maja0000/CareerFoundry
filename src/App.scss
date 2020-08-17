@@ -15,6 +15,14 @@ h2 {
 h3 {
   font-size: 1.2em;
 }
+a {
+  text-decoration: none;
+}
+.all-courses {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
 .heading {
   margin: 10px;
 }

@@ -10,7 +10,7 @@ import useCourses from './components/Hooks/useCourses';
 
 function App() {
   const { courses, loading } = useCourses();
-  console.log('here', courses);
+  // console.log('here', courses);
   return (
     <>
       <div className="wrapper">
@@ -50,12 +50,7 @@ function App() {
               ))}
             </div>
           )}
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
+
           <Switch>
             <Route exact path="/"></Route>
             <Route exact path="/courses/:name">
