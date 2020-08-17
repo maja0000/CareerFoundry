@@ -13,7 +13,12 @@ export default function CourseCard({ course }) {
         <div className="card-title">DESCRIPTION HERE??</div>
         <div
           className="card-pic"
-          style={{ backgroundImage: `url(${Alexa})` }}
+          style={{
+            backgroundImage:
+              course.title === 'Voice User Interface Design'
+                ? `url(${Alexa})`
+                : `url(${Immersion})`,
+          }}
         ></div>
       </div>
     </>
