@@ -5,8 +5,11 @@ import './App.scss';
 // pages
 import CourseCard from './components/CourseCard/CourseCard';
 import CoursePage from './components/Pages/CoursePage';
+// functionality
+import useCourses from './components/Hooks/useCourses';
 
 function App() {
+  const { courses, loading } = useCourses();
   return (
     <>
       <div className="wrapper">
