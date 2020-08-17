@@ -53,7 +53,6 @@ export default function CoursePage() {
   return (
     <>
       <div className="course-details-wrap">
-        hello {title}
         <div
           style={{
             backgroundImage:
@@ -84,18 +83,22 @@ export default function CoursePage() {
               <div className="mothly-payment">
                 <p className="label"> MOST POPULAR </p> Monthly payment plan{' '}
                 <br />
-                {isEurope === 'EU' ? '€' : '$'} 500.00 x 4{' '}
+                {isEurope === 'EU' ? '€' : '$'}{' '}
+                {details && isEurope === 'EU'
+                  ? details.prices[1].amount / 4
+                  : 'Loading...'}{' '}
+                x 4{' '}
               </div>
               <div className="one-payment ">
                 <p className="label"> BEST DEAL</p>
                 One time payment <br />
                 {isEurope === 'EU' ? '€' : '$'}
-                {/* {details
-                ? details.prices 
-                    .map((date, idx) => <li key={idx}>{date}</li>)
-                : 'Loading...'}
-                 x 1 <br /> save{' '}
-                {countDiscount(5000)} */}
+                {/* {details.prices[1]} */}
+                {details && isEurope === 'EU'
+                  ? details.prices[1].amount
+                  : 'Loading...'}
+                x 1 <br />
+                {/* save {countDiscount([details.prices[1].amount])} */}
               </div>
             </div>
           </div>
