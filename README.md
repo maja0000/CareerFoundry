@@ -5,6 +5,7 @@ npm i + npm start :)
 #### With more time I'd like to add/ change :
 
 1. refacture coursePage.js - it's long and hard to read (break down to another custom hook with fetch and UI components)
+2. more accessible html! 
 2. spinner instead of "Loading..." message
 3. refacture css
 
