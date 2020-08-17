@@ -10,6 +10,7 @@ import useCourses from './components/Hooks/useCourses';
 
 function App() {
   const { courses, loading } = useCourses();
+  console.log('here', courses);
   return (
     <>
       <div className="wrapper">
@@ -29,6 +30,26 @@ function App() {
               experience.
             </h3>
           </div>
+          {loading ? (
+            'Loading...'
+          ) : (
+            <div className="all-courses">
+              {courses.map((course, index) => (
+                <div key={index} course={course}>
+                  <Link
+                    to={{
+                      pathname: `/courses/${course.title}`,
+                      state: {
+                        course,
+                      },
+                    }}
+                  >
+                    <CourseCard course={course} />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          )}
           <CourseCard />
           <CourseCard />
           <CourseCard />
